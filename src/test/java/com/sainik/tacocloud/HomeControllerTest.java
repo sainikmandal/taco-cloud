@@ -1,22 +1,25 @@
 package com.sainik.tacocloud;
 
-import com.sainik.tacocloud.controllers.HomeController;
+import com.sainik.tacocloud.config.WebConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.containsString;
 
-@WebMvcTest(HomeController.class)
+@WebMvcTest
+@Import(WebConfig.class)
 public class HomeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
     @Test
-    public void TestHomePage() throws Exception {
+    public void testHomePage() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
