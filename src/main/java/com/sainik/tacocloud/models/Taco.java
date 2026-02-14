@@ -1,8 +1,8 @@
 package com.sainik.tacocloud.models;
 
 import lombok.Data;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.List;
 
 @Data
