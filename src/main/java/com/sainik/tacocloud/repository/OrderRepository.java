@@ -1,0 +1,7 @@
+package com.sainik.tacocloud.repository;
+
+import com.sainik.tacocloud.models.TacoOrder;
+import org.springframework.data.repository.CrudRepository;
+
+public interface OrderRepository extends CrudRepository<TacoOrder, Long> {
+}
