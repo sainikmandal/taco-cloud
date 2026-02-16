@@ -1,6 +1,8 @@
 package com.sainik.tacocloud;
 
 import com.sainik.tacocloud.config.WebConfig;
+import com.sainik.tacocloud.controllers.DesignTacoController;
+import com.sainik.tacocloud.controllers.OrderController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -11,7 +13,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.containsString;
 
-@WebMvcTest
+@WebMvcTest(excludeFilters = @org.springframework.context.annotation.ComponentScan.Filter(
+        type = org.springframework.context.annotation.FilterType.ASSIGNABLE_TYPE,
+        classes = {DesignTacoController.class, OrderController.class}))
 @Import(WebConfig.class)
 public class HomeControllerTest {
 
